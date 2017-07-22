@@ -10,8 +10,11 @@ befor install multilib
 [0-9]+alien
 [0-9]+compat32
 ~~~
+more info on this build
 
-this is Experimental and up to you to learn slack ware multilib
+https://wiki.winehq.org/Building_Wine#Shared_WoW64
+
+this is Experimental and up to you to learn Slackware multilib
 get it here
 my multi lib script 
 
