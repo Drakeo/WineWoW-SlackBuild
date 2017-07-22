@@ -1,0 +1,73 @@
+ #!/bin/bash
+# Init
+FILE="/tmp/out.$$"
+GREP="/bin/grep"
+#....
+# Make sure only root can run our script
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root if you install regular user
+   please use the ./install.sh command " 1>&2
+   exit 1
+fi
+
+# ...
+
+slackpkg update
+
+echo -e "\e[1;33m Remember to selct ok and press Enter\e[0m"
+
+
+sleep 5
+
+
+slackpkg install-new
+
+echo -e "\e[1;33m Remember to selct ok and press Enter\e[0m"
+
+
+sleep 5
+
+slackpkg upgrade-all
+
+echo -e "\e[1;33m Going to upgrade multilib \e[0m"
+sleep 5
+
+
+##UPGRADE MULTI-LIB
+# put this in your /usr/loca/bin uncomment # before rsync for alien bob updates to the GCC
+#rsync -r -a -v  --delete --progress --stats rsync://bear.alienbase.nl/mirrors/people/alien/multilib/current  /var/cache/multilib/
+cd /var/cache/multilib/current
+upgradepkg   --install-new *.t?z
+cd /var/cache/multilib/current/slackware64-compat32
+#massconvert32.sh -u file:///home/ftp/pub/Linux/Slackware/slackware-current/slackware/
+massconvert32.sh -u http://mirrors.us.kernel.org/slackware/slackware-current/slackware
+upgradepkg --install-new *?/*.t?z
+
+
+echo -e "\e[1;33m mkinitrd -c -k x.x.x -f ext4 -r /dev/sdxx -m xhci-pci:ohci-pci:ehci-pci:xhci-hcd:uhci-hcd:ehci-hcd:hid:usbhid:i2c-hid:hid_generic:hid-cherry:hid-logitech:hid-logitech-dj:hid-logitech-hidpp:hid-lenovo:hid-microsoft:hid_multitouch:mbcache:jbd2:ext4 -u -o /boot/initrd.gz
+\e[0m"
+
+echo -e "\e[1;33m  change the x.x.x to your kernel version  and the drive your on\e[0m"
+sleep 10
+
+for kernel upgrades 
+# mkinitrd -c -k x.x.x -f ext4 -r /dev/sdxx -m xhci-pci:ohci-pci:ehci-pci:xhci-hcd:uhci-hcd:ehci-hcd:hid:usbhid:i2c-hid:hid_generic:hid-cherry:hid-logitech:hid-logitech-dj:hid-logitech-hidpp:hid-lenovo:hid-microsoft:hid_multitouch:mbcache:jbd2:ext4 -u -o /boot/initrd.gz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
