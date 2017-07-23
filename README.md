@@ -48,17 +48,20 @@ this will git pull the wine repo save it to your Slackbuild
  
 if you want to do as I do  
 
-mkdir wow64
+git clone https://github.com/Drakeo/WineWoW-SlackBuild.git
 
-cd wow64
+cd WineWoW-SlackBuild
 
 git clone git clone git://source.winehq.org/git/wine.git 
 
 cd wine
 
-checkout wine-x.x.x your version. 
+git checkout wine-x.x.x your version. 
+
+cd WineWoW-SlackBuild
 
 now edit your  wineWOW64.SlackBuild.sh
+
 
 VERSION=${VERSION:-2.13} to another version VERSION=${VERSION:-x.x.x}
 
