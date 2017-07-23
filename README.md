@@ -1,5 +1,17 @@
 # WineWoW-SlackBuild
-
+~~~
+This program will be install in /usr/local/lib
+and /usr/local/lib64
+you must edit your /etc/ld.so.conf
+/lib64
+/usr/lib
+/usr/lib64
+/usr/local/lib
+/usr/local/lib64
+/usr/x86_64-slackware-linux/lib64
+/usr/lib64/seamonkey
+/usr/lib/seamonkey
+~~~
 must add this to your /etc/slackpkg/blacklist
 
 befor install multilib
