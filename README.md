@@ -1,4 +1,5 @@
-# WineWoW-SlackBuild
+# WineWoW64-SlackBuild
+
 ~~~
 This program will be install in /usr/local/lib
 and /usr/local/lib64
@@ -62,6 +63,7 @@ cd WineWoW-SlackBuild
 
 now edit your  wineWOW64.SlackBuild.sh
 
+# wine-2.0 and later for after Slackware 14.2 and GCC-7.1.0 
 
 VERSION=${VERSION:-2.13} to another version VERSION=${VERSION:-x.x.x}
 
