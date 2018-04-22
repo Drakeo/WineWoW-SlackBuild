@@ -1,10 +1,10 @@
 #!/bin/bash
 
 PRGNAM=wineWOW64
-VERSION=${VERSION:-2.13}
+VERSION=${VERSION:-3.0}
 BUILD=${BUILD:-3}
 TAG=${TAG:-_SBo}
-GTAG=wine-2.13
+GTAG=wine-3.0
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
