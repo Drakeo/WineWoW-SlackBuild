@@ -1,10 +1,10 @@
 #!/bin/bash
 
-PRGNAM=wineWOW64
-VERSION=${VERSION:-3.0}
+PRGNAM=wine64
+VERSION=${VERSION:-4.3}
 BUILD=${BUILD:-3}
 TAG=${TAG:-_SBo}
-GTAG=wine-3.0
+GTAG=wine-4.3
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -41,7 +41,6 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
 mkdir -p $PRGNAM-$VERSION/wine64-build
-mkdir -p $PRGNAM-$VERSION/wine32-build
 cd $PRGNAM-$VERSION
 if [ -d $CWD/wine  ]
 then
@@ -71,20 +70,7 @@ echo build64
 sleep 2
 ../wine/configure --prefix/usr --enable-win64
 make -j8
-
-cd $TMP
-cd $PRGNAM-$VERSION
-cd wine32-build
-echo build32
-sleep 2
-PKG_CONFIG_PATH=/usr/lib/pkgconfig  ../wine/configure --prefix/usr --with-win64=../wine64-build
-make -j8
 make install DESTDIR=$PKG
-cd $TMP
-cd $PRGNAM-$VERSION
-cd wine64-build
-make install DESTDIR=$PKG
-
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
 
